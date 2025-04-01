@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Quiz with Timer</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background: url('quiz-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-color: rgba(223, 14, 14, 0.6); */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .overlay.active {
+            display: flex;
+        }
+
+
+        .content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background: rgba(239, 201, 9, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(224, 20, 20, 0.603);
+            max-width: 90%;
+            width: 400px;
+        }
+
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: rgb(10, 40, 212);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+
+        #submit {
+            background-color: #007BFF;
+        }
+
+        #submit:hover {
+            background-color: #0056b3;
+        }
+
+        #quit {
+            background-color: #FF4D4D;
+        }
+
+        #quit:hover {
+            background-color: #cc0000;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #c9c6d4;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #timer {
+            font-size: 1.5rem;
+            color: yellow;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay welcome-screen active">
+        <div class="content">
+            <h1>Welcome to the Maths Quiz!</h1>
+            <button id="start-info">Get Started</button>
+        </div>
+    </div>
+
+
+    <div class="overlay info-screen">
+        <div class="content">
+            <h1>Enter Your Details</h1>
+            <input type="text" id="student-name" placeholder="Enter your name">
+            <input type="text" id="sap-id" placeholder="Enter your SAP ID">
+            <button id="start-quiz">Start Quiz</button>
+        </div>
+    </div>
+
+
+    <div class="overlay quiz-container">
+        <div class="content">
+            <h1>Maths Quiz</h1>
+            <p id="timer">Time Remaining: 20s</p>
+            <p id="question">Loading...</p>
+            <input type="number" id="answer" placeholder="Enter your answer">
+            <div class="btn-group">
+                <button id="submit">Submit</button>
+                <button id="quit">Quit</button>
+            </div>
+            <p id="result"></p>
+        </div>
+    </div>
+
+
+
+    <div class="overlay result-screen">
+        <div class="content">
+            <h1>Quiz Results</h1>
+            <p id="final-result"></p>
+            <button class="restart-button" onclick="location.reload()">Restart</button>
+        </div>
+    </div>
+
+
+    <script>
+        let studentName = "";
+        let sapId = "";
+        let currentExpression;
+        let score = 0;
+        let difficultyLevel = 2;   // question deficulty level
+        let timerDuration = 15;     // duration
+        let timerInterval;
+        let questionCount = 0;
+    
+
+        function showScreen(screenClass) {
+    document.querySelectorAll('.overlay').forEach(function(screen) {
+        screen.classList.remove('active');
+    });
+    document.querySelector(screenClass).classList.add('active');
+}
+
+document.getElementById('start-info').addEventListener('click', function() {
+    showScreen('.info-screen');
+});
+
+document.getElementById('start-quiz').addEventListener('click', function() {
+    studentName = document.getElementById('student-name').value.trim();
+    sapId = document.getElementById('sap-id').value.trim();
+    if (!studentName || !sapId) {
+        alert('Please enter both your name and SAP ID.');
+        return;
+    }
+    if (sapId === studentName) {
+        alert('Invalid data! Both name and SAP ID cannot be the same.');
+        return;
+    }
+    const namePattern = /^[A-Za-z\s]+$/;
+    const sapIdPattern = /^[0-9]+$/;
+    if (!namePattern.test(studentName)) {
+        alert('Invalid Name! Please enter a valid name without numbers or special characters.');
+        return;
+    }
+    if (!sapIdPattern.test(sapId)) {
+        alert('Invalid SAP ID! Please enter a valid numeric SAP ID.');
+        return;
+    }
+    showScreen('.quiz-container');
+    startQuiz();
+});
+
+function generateExpression() {
+    const max = 10 * difficultyLevel;
+    let numbers = [];
+    let operators = ['+', '-', '*', '/'];
+    let expression = "";
+    for (let i = 0; i < difficultyLevel; i++) {
+        numbers.push(Math.floor(Math.random() * max) + 1);
+    }
+    expression += numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        let operator = operators[Math.floor(Math.random() * operators.length)];
+        expression += ` ${operator} ${numbers[i]}`;
+    }
+    return { expression: expression, answer: eval(expression) };
+}
+
+function startQuiz() {
+    score = 0;
+    difficultyLevel = 2;
+    questionCount = 0;
+    nextQuestion();
+}
+
+function startTimer() {
+    clearInterval(timerInterval);
+    let timeLeft = timerDuration;
+    document.getElementById('timer').textContent = `Time Remaining: ${timeLeft}s`;
+    timerInterval = setInterval(function() {
+        timeLeft--;
+        document.getElementById('timer').textContent = `Time Remaining: ${timeLeft}s`;
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            endQuiz('Time is up!');
+        }
+    }, 1000);
+}
+
+function nextQuestion() {
+    if (questionCount > 0 && questionCount % 2 === 0) {
+        difficultyLevel++;
+        timerDuration += 2;
+    }
+    questionCount++;
+    currentExpression = generateExpression();
+    document.getElementById('question').textContent = `Solve: ${currentExpression.expression}`;
+    document.getElementById('answer').value = '';
+    startTimer();
+}
+
+function endQuiz(message) {
+    clearInterval(timerInterval);
+    showScreen('.result-screen');
+    document.getElementById('final-result').textContent = `${message} Your score is: ${score}`;
+}
+
+document.getElementById('submit').addEventListener('click', function() {
+    clearInterval(timerInterval);
+    const userAnswer = parseFloat(document.getElementById('answer').value);
+    if (userAnswer === currentExpression.answer) {
+        score++;
+        nextQuestion();
+    } else {
+        endQuiz('Wrong answer!');
+    }
+});
+
+document.getElementById('quit').addEventListener('click', function() {
+    endQuiz('You quit the quiz!');
+});
+
+    </script>
+</body>
+</html>
