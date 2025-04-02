@@ -1,0 +1,174 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: black; color: white; }
+        .board { display: grid; grid-template: repeat(3, 120px) / repeat(3, 120px); gap: 8px; justify-content: center; margin: 20px auto; }
+        .cell { background: darkgray; font-size: 2.5em; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 10px; box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); }
+        .cell:hover { background: dimgray; } 
+        .highlight { background: orangered !important; box-shadow: 0 0 15px darkblue; }
+        .turn-indicator { font-size: 1.5em; margin: 20px; padding: 10px; background: blue; display: inline-block; border-radius: 5px; box-shadow: 0 0 10px blue; }
+        button { padding: 10px; font-size: 1em; cursor: pointer; background: blue; color: white; border: none; border-radius: 5px; margin-top: 20px; box-shadow: 0 0 10px red; }
+        button:hover { background: darkred; }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div id="status" class="turn-indicator">Player X's turn</div>
+    <div id="board" class="board"></div>
+    <button onclick="restartGame()">Restart</button>
+    
+    <script>
+        let currentPlayer = 'X', board = Array(9).fill(''), gameActive = true;
+        const winPatterns = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+        
+        function createBoard() {
+            document.getElementById('board').innerHTML = ''; 
+            board.forEach((_, i) => {
+                const cell = document.createElement('div');
+                cell.className = "cell"; cell.dataset.index = i;
+                cell.onclick = handleMove; document.getElementById('board').appendChild(cell);
+            });
+        }
+
+        function handleMove(e) {
+            if (!gameActive) return;
+            const i = e.target.dataset.index;
+            if (board[i] !== '') return; 
+            board[i] = currentPlayer; 
+            e.target.textContent = currentPlayer;
+            e.target.style.color = currentPlayer === 'X' ? 'gold' : 'orangered';
+
+            if (checkWinner()) {
+                document.getElementById('status').textContent = `🎉 Player ${currentPlayer} Wins the Game! 🎉`;
+                document.getElementById('status').style.background = currentPlayer === 'X' ? 'gold' : 'orangered';
+                gameActive = false;
+                return;
+            }
+
+            if (!board.includes('')) { 
+                document.getElementById('status').textContent = "🤝 It's a Draw! 🤝";
+                document.getElementById('status').style.background = 'gray';
+                gameActive = false;
+                return;
+            }
+
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            document.getElementById('status').textContent = `Player ${currentPlayer}'s turn`;
+            document.getElementById('status').style.background = currentPlayer === 'X' ? 'blue' : 'orangered';
+        }
+
+        function checkWinner() {
+            for (let [a, b, c] of winPatterns) {
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    document.querySelector(`[data-index='${a}']`).classList.add('highlight');
+                    document.querySelector(`[data-index='${b}']`).classList.add('highlight');
+                    document.querySelector(`[data-index='${c}']`).classList.add('highlight');
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function restartGame() {
+            board.fill(''); gameActive = true; currentPlayer = 'X';
+            document.getElementById('status').textContent = "Player X's turn";
+            document.getElementById('status').style.background = 'blue';
+            createBoard();
+        }
+
+        createBoard();
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: black; color: white; }
+        .board { display: grid; grid-template: repeat(3, 120px) / repeat(3, 120px); gap: 8px; justify-content: center; margin: 20px auto; }
+        .cell { background: darkgray; font-size: 2.5em; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 10px; box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); }
+        .cell:hover { background: dimgray; } 
+        .highlight { background: orangered !important; box-shadow: 0 0 15px darkblue; }
+        .turn-indicator { font-size: 1.5em; margin: 20px; padding: 10px; background: blue; display: inline-block; border-radius: 5px; box-shadow: 0 0 10px blue; }
+        button { padding: 10px; font-size: 1em; cursor: pointer; background: blue; color: white; border: none; border-radius: 5px; margin-top: 20px; box-shadow: 0 0 10px red; }
+        button:hover { background: darkred; }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div id="status" class="turn-indicator">Player X's turn</div>
+    <div id="board" class="board"></div>
+    <button onclick="restartGame()">Restart</button>
+    
+    <script>
+        let currentPlayer = 'X', board = Array(9).fill(''), gameActive = true;
+        const winPatterns = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+        
+        function createBoard() {
+            document.getElementById('board').innerHTML = ''; 
+            board.forEach((_, i) => {
+                const cell = document.createElement('div');
+                cell.className = "cell"; cell.dataset.index = i;
+                cell.onclick = handleMove; document.getElementById('board').appendChild(cell);
+            });
+        }
+
+        function handleMove(e) {
+            if (!gameActive) return;
+            const i = e.target.dataset.index;
+            if (board[i] !== '') return; 
+            board[i] = currentPlayer; 
+            e.target.textContent = currentPlayer;
+            e.target.style.color = currentPlayer === 'X' ? 'gold' : 'limegreen';
+
+            if (checkWinner()) {
+                document.getElementById('status').textContent = `🎉 Player ${currentPlayer} Wins the Game! 🎉`;
+                document.getElementById('status').style.background = currentPlayer === 'X' ? 'gold' : 'limegreen';
+                gameActive = false;
+                return;
+            }
+
+            if (!board.includes('')) { 
+                document.getElementById('status').textContent = "🤝 It's a Draw! 🤝";
+                document.getElementById('status').style.background = 'gray';
+                gameActive = false;
+                return;
+            }
+
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            document.getElementById('status').textContent = `Player ${currentPlayer}'s turn`;
+            document.getElementById('status').style.background = currentPlayer === 'X' ? 'blue' : 'limegreen';
+        }
+
+        function checkWinner() {
+            for (let [a, b, c] of winPatterns) {
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    document.querySelector(`[data-index='${a}']`).classList.add('highlight');
+                    document.querySelector(`[data-index='${b}']`).classList.add('highlight');
+                    document.querySelector(`[data-index='${c}']`).classList.add('highlight');
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function restartGame() {
+            board.fill(''); gameActive = true; currentPlayer = 'X';
+            document.getElementById('status').textContent = "Player X's turn";
+            document.getElementById('status').style.background = 'blue';
+            createBoard();
+        }
+
+        createBoard();
+    </script>
+</body>
+</html>
