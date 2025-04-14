@@ -5,11 +5,12 @@ This project lets you add, update, and delete items through a simple web interfa
 
 ---
 
+<!-- 
 ## 📸 Demo  
 
-![CRUD Demo Screenshot](screenshot.png) <!-- optional: add your screenshot image in your repo -->
+![CRUD Demo Screenshot](screenshot.png)
+-->
 
----
 
 ## 📑 Features  
 
