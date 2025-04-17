@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #4CAF50;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: #4CAF50;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #fff;
+            background: #4CAF50;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .project-card a:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Links in Top Left Corner */
+        .top-left-links {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .top-left-links a {
+            padding: 10px 15px;
+            background: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .top-left-links a:hover {
+            background: #45a049;
+            transform: translateY(-2px); /* Adds a slight upward movement on hover */
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Links in Top Left Corner -->
+    <div class="top-left-links">
+        <a href="index.html">Name</a>
+        <a href="about.html">About Me</a>
+        <a href="table.html">Table Grade</a>
+        <a href="biolink.html">Bio Link</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div id="projects" class="header">
+            <h1>My Projects</h1>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Basic Calculator</h3>
+                <p>Perform basic arithmetic operations: addition, subtraction, multiplication, and division. A great tool for everyday calculations.</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>Showcase your skills, experience, and best work through an attractive online portfolio. Your digital resume!</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="project-card">
+                <h3>E-Commerce Web Page</h3>
+                <p>Sell products and services online with this dynamic and interactive e-commerce platform.</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p>Stay updated with real-time and forecasted weather information for any location.</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="project-card">
+                <h3>Smart Work Management System</h3>
+                <p>Track employee performance and make informed decisions based on productivity data.</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

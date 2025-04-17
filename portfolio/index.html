@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 50px;
+            background: #333;
+            color: #fff;
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        .header h4 {
+            font-size: 1.5rem;
+        }
+
+        .header a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .header a:hover {
+            background: #45a049;
+        }
+
+        .header img {
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fixed Navigation Bar */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            background: #333;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-item {
+            width: 100%;
+        }
+
+        .nav-link {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            background: #4CAF50;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1rem;
+            width: 80%;
+            margin: auto;
+        }
+
+        .nav-link:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Main Content Section */
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        footer span {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Navigation -->
+    <nav class="nav">
+        <div class="logo">
+            <h1>Siddharth<span>k</span>umar</h1>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="table.html" class="nav-link">Table Grades</a>
+            </li>
+            <li class="nav-item">
+                <a href="project.html" class="nav-link">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a href="biolink.html" class="nav-link">Bio Links</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="home" class="header">
+        <div class="hero">
+            <h3>Hello, my name is</h3>
+            <h1>Siddharth Kumar</h1>
+            <h4>And I'm a fresher<span id="type1"></span></h4>
+            <a href="#">Hire me</a>
+        </div>
+
+        <img src="D:\UPES_Notes\Semester_2\Web Technology\Assignment\Experiment 2\sidd photo.JPG" width="250" height="300" alt="Profile Photo">
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+        <p>Welcome to my portfolio website! Navigate through the menu on the left to learn more about me.</p>
+    </div>
+
+    <footer>
+        <p>Created By <span>Siddharth</span> | &copy; 2025 All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

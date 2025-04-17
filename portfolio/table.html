@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Grades</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        /* Title Section */
+        .title h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        /* Table Styling */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 12px;
+        }
+
+        th {
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tr:hover {
+            background: #f1f9f1;
+        }
+
+        /* Navigation Buttons - Top Left Corner */
+        .nav-list {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin-bottom: 10px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            padding: 10px 15px;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            display: block;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #4CAF50;
+            transform: translateX(10px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            .nav-list {
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Title Section -->
+    <section class="section theme" id="services">
+        <div class="title">
+            <h1>Table Grades</h1>
+        </div>
+
+        <!-- Table -->
+        <table>
+            <tr>
+                <th>10th</th>
+                <th>12th</th>
+                <th>Graduation</th>
+            </tr>
+            <tr>
+                <td>School Name: May Flower School</td>
+                <td>College Name: A.N College</td>
+                <td>College Name: Patliputra University</td>
+            </tr>
+            <tr>
+                <td>Percentage: 63%</td>
+                <td>Percentage: 65%</td>
+                <td>Percentage: 75%</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Navigation List - Positioned in Top Left Corner -->
+    <ul class="nav-list">
+        <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+            <a href="project.html" class="nav-link">Projects</a>
+        </li>
+        <li class="nav-item">
+            <a href="biolink.html" class="nav-link">Bio Links</a>
+        </li>
+    </ul>
+
+</body>
+
+</html>

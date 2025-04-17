@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 10px; /* Position from the left edge */
+            top: 10px;  /* Position from the top edge */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            background: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #4CAF50;
+            transform: translateX(10px);
+        }
+
+        .nav-link::after {
+            content: attr(data-hover);
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%) scale(0);
+            background: #4CAF50;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            transition: transform 0.3s;
+        }
+
+        .nav-link:hover::after {
+            transform: translateY(-50%) scale(1);
+        }
+
+        /* Fixed Bottom Link */
+        .bottom-link {
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            background: #333;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .bottom-link:hover {
+            background: #4CAF50;
+            transform: translateX(10px);
+        }
+
+        .bottom-link::after {
+            content: attr(data-hover);
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%) scale(0);
+            background: #4CAF50;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            transition: transform 0.3s;
+        }
+
+        .bottom-link:hover::after {
+            transform: translateY(-50%) scale(1);
+        }
+
+        /* Title and About Section */
+        .title h1 {
+            text-align: center;
+            margin: 100px 0 20px;
+            font-size: 2.5rem;
+            color: #4CAF50;
+            text-transform: uppercase;
+        }
+
+        .about {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .about img {
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .about h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .about p br {
+            display: none;
+        }
+
+        .about p span {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav-list">
+        <li class="nav-item"><a href="index.html" class="nav-link" data-hover="Go to Home">Name</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link" data-hover="Learn About Me">About</a></li>
+        <li class="nav-item"><a href="table.html" class="nav-link" data-hover="View Grades">Table Grades</a></li>
+        <li class="nav-item"><a href="project.html" class="nav-link" data-hover="Explore Projects">Projects</a></li>
+        <li class="nav-item"><a href="biolink.html" class="nav-link" data-hover="See Bio Links">Bio Links</a></li>
+    </ul>
+
+    <!-- <a href="contact.html" class="bottom-link" data-hover="Get in Touch">Contact</a> -->
+
+    <section class="about">
+        <div class="title">
+            <h1>Portfolio</h1>
+        </div>
+        <img src="D:\UPES_Notes\Semester_2\Web Technology\Assignment\Experiment 2\sidd photo.JPG" width="200" height="250" alt="Profile Photo">
+        <h1>I'm Siddharth</h1>
+        <p>
+            I am an <span>inquisitive</span> and <span>ambitious</span> individual with a passion for technology and innovation.<br>
+            Currently specializing in <span>Artificial Intelligence</span> and <span>Machine Learning</span>,<br>
+            I am constantly exploring new ways to solve real-world problems through creative and efficient solutions.<br>
+            My areas of expertise include <span>Python programming</span>, <span>data analysis</span>, and <span>optimization techniques</span>.
+        </p>
+    </section>
+</body>
+
+</html>
