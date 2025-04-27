@@ -25,7 +25,7 @@ You can view a live demo of this project [here](link_to_demo).
   App.js              // Entry point of the application
   index.js            // Renders the App
 /package.json         // Project dependencies and scripts
-README.md             // This file
+
 
 
 ## Installation
