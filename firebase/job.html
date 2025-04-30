@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Recruitment Form</title>
+
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      font-size: 16px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      box-sizing: border-box;
+      transform: translateY(-50px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .container:hover {
+      transform: translateY(0);
+    }
+
+    .container h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #333;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      background: #f9f9f9;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #4CAF50;
+      outline: none;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .message {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      display: none;
+    }
+
+    .message.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .message.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    /* Progress Bar */
+    .progress-bar {
+      width: 100%;
+      background: #f0f0f0;
+      height: 12px;
+      margin: 25px 0;
+      border-radius: 5px;
+    }
+
+    .progress-bar-filled {
+      height: 100%;
+      background: #4CAF50;
+      width: 0%;
+      border-radius: 5px;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 20px;
+        width: 90%;
+      }
+
+      .container h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Job Recruitment Form</h2>
+    <form id="jobForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="text" id="position" placeholder="Position Applying For" required>
+      <input type="text" id="skills" placeholder="List your skills (separate with commas)" required>
+      <textarea id="experience" placeholder="Previous Work Experience (if any)" required></textarea>
+      <textarea id="education" placeholder="Highest Level of Education" required></textarea>
+      <textarea id="additional" placeholder="Additional Notes or Interests"></textarea>
+      
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <div id="progressBarFilled" class="progress-bar-filled"></div>
+      </div>
+
+      <button type="submit">Submit Application</button>
+    </form>
+    <div id="responseMessage" class="message"></div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+  apiKey: "AIzaSyAWQCI0HD5bdWGplIUtmDkZPcxXa3qE6o0",
+  authDomain: "job-recruitment-944e5.firebaseapp.com",
+  projectId: "job-recruitment-944e5",
+  storageBucket: "job-recruitment-944e5.firebasestorage.app",
+  messagingSenderId: "271779453058",
+  appId: "1:271779453058:web:d2ee1b8040f08a61ac7c9b"
+};
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const jobForm = document.getElementById('jobForm');
+    const responseMessage = document.getElementById('responseMessage');
+    const progressBarFilled = document.getElementById('progressBarFilled');
+
+    // Function to calculate form completion
+    function updateProgressBar() {
+      const inputs = jobForm.querySelectorAll('input, textarea');
+      const totalFields = inputs.length;
+      let filledFields = 0;
+      inputs.forEach(input => {
+        if (input.value.trim() !== "") filledFields++;
+      });
+      const progress = (filledFields / totalFields) * 100;
+      progressBarFilled.style.width = progress + "%";
+    }
+
+    // Event listener to update progress bar on input change
+    jobForm.addEventListener('input', updateProgressBar);
+
+    // Form submission handler
+    jobForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      try {
+        await addDoc(collection(db, "jobApplications"), {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          position: document.getElementById('position').value,
+          skills: document.getElementById('skills').value,
+          experience: document.getElementById('experience').value,
+          education: document.getElementById('education').value,
+          additional: document.getElementById('additional').value
+        });
+
+        responseMessage.textContent = "Application submitted successfully!";
+        responseMessage.className = "message success";
+        responseMessage.style.display = "block";
+        jobForm.reset();
+        updateProgressBar(); // Reset progress bar
+      } catch (error) {
+        console.error("Error submitting application: ", error);
+        responseMessage.textContent = "Failed to submit application. Please try again.";
+        responseMessage.className = "message error";
+        responseMessage.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
