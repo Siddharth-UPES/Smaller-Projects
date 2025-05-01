@@ -34,8 +34,8 @@ This is a modern and responsive job recruitment web form that collects applicant
 
 1. **Clone the repository** or download the ZIP:
    ```bash
-   git clone https://github.com/your-username/job-recruitment-form.git
-   cd job-recruitment-form
+   git clone https://github.com/Siddharth-UPES/Smaller-Projects.git
+   cd Smaller-Projects/firebase
 
 Setup Firebase:
 
