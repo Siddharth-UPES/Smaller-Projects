@@ -5,11 +5,7 @@ This project lets you add, update, and delete items through a simple web interfa
 
 ---
 
-<!-- 
-## 📸 Demo  
 
-![CRUD Demo Screenshot](screenshot.png)
--->
 
 
 ## 📑 Features  
@@ -37,5 +33,5 @@ This project lets you add, update, and delete items through a simple web interfa
 ### 1️⃣ Clone the Repository  
 
 ```bash
-git clone https://github.com/YourUsername/YourRepoName.git
+git clone https://github.com/Siddharth-UPES/Smaller-Projects.git
 cd YourRepoName
