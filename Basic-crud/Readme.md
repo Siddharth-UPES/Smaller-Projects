@@ -34,4 +34,4 @@ This project lets you add, update, and delete items through a simple web interfa
 
 ```bash
 git clone https://github.com/Siddharth-UPES/Smaller-Projects.git
-cd YourRepoName
+cd Smaller-Projects/Basic-crud
