@@ -34,7 +34,7 @@ To run this project locally, follow these steps:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/pc-picker.git
+git clone https://github.com/Siddharth-UPES/Smaller-Projects/pc-picker.git
 
 ## Navigate to the project folder
 cd pc-picker
