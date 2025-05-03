@@ -19,4 +19,4 @@ A simple, interactive, and responsive web-based **Maths Quiz application** built
 1. **Clone the Repository** or **Download ZIP**:
    ```bash
    git clone https://github.com/Siddharth-UPES/Smaller-Projects/Maths-Quiz.git
-cd Maths-Quiz
+   cd Maths-Quiz
