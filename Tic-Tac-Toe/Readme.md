@@ -40,4 +40,4 @@ tic-tac-toe/
 
 1. Download or clone the repository:
    ```bash
-   git clone https://github.com/yourusername/tic-tac-toe.git
+   git clone https://github.com/Siddharth-UPES/Smaller-Projects/tic-tac-toe.git
