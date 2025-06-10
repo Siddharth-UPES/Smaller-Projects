@@ -20,18 +20,6 @@ This is a basic HTML-only project that simulates a student feedback survey form 
 - Confirmation checkbox before submission
 - Redirects to a custom thank-you page
 
-## 📸 Screenshots
-
-### Form Preview
-
-![Form Screenshot](./screenshot-form.png)
-
-### Thank You Page
-
-![Thank You Screenshot](./screenshot-thankyou.png)
-
-> Note: Make sure the images `screenshot-form.png` and `screenshot-thankyou.png` are added in your folder to render properly here.
-
 ## 🚀 How to Use
 
 1. Clone the repository or download the `.html` files.
