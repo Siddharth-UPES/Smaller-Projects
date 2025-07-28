@@ -41,8 +41,6 @@ Depending on the project, the following technologies/tools were used:
 - **Others:** Git, GitHub, VS Code
 
 ---
-
----
 🤝 Contributing
 This is a personal learning space, but if you'd like to contribute ideas or improvements, feel free to fork the repo and raise a pull request.
 
