@@ -1,41 +1,61 @@
 # 📁 Smaller Projects
 
 Welcome to my **Smaller Projects** repository!  
-This repository contains a collection of small, beginner-friendly projects that I’ve worked on during my academic journey. These projects cover a variety of topics and serve as a personal learning archive.
+This repository contains a curated collection of beginner-friendly and personal mini-projects developed during my academic learning and exploration of programming concepts.
 
 ---
 
 ## 📖 About This Repository
 
-This repository is created to:
-- Keep a well-organized record of the small projects I build while learning.
-- Share simple and beginner-level code implementations.
-- Track my academic programming activities and improvements.
+This repository was created with the goal to:
+
+- Maintain a record of my small-scale project work.
+- Track my progress in front-end, logic-building, and basic backend integration.
+- Demonstrate my learning journey in web development and programming.
+- Share functional and easy-to-understand code for fellow learners.
 
 ---
 
-## 📂 Project List  
+## 📂 Project List
 
-| 🔢 No. | 📌 Project Name               | 📝 Description                                 |
-|:------|:------------------------------|:-----------------------------------------------|
-| 1.    | **Basic-Portfolio**            | A simple personal portfolio website built with HTML, CSS, and basic JS. |
-| 2.    | **Basic-crud**                 | A basic CRUD (Create, Read, Update, Delete) application using JavaScript. |
-| 3.    | **Math-Quiz**                  | A fun math quiz web app for practicing arithmetic problems. |
-| 4.    | **Portfolio**                  | A responsive, multi-section personal portfolio project. |
-| 5.    | **Tic-Tac-Toe**                | A classic Tic-Tac-Toe game built using JavaScript and HTML/CSS. |
-| 6.    | **Word-Antakshari-Game**       | A text-based word game inspired by the traditional Antakshari concept. |
+| 🔢 No. | 📌 Project Name             | 📝 Description                                                                 |
+|:------:|:---------------------------|:------------------------------------------------------------------------------|
+| 1.    | **Basic-Portfolio**         | A simple personal website built using HTML, CSS, and basic JavaScript.       |
+| 2.    | **Basic-crud**              | A minimal CRUD app using vanilla JavaScript to handle user data.             |
+| 3.    | **Math-Quiz**               | A web app to solve random arithmetic problems; includes score tracking.      |
+| 4.    | **Portfolio**               | A complete personal portfolio website with responsive sections.              |
+| 5.    | **Tic-Tac-Toe**             | A playable 2-player Tic-Tac-Toe game using HTML, CSS, and JavaScript.        |
+| 6.    | **Word-Antakshari-Game**    | A console-based word game inspired by Antakshari using string manipulation.  |
 
----
-
-## 🛠️ Tech Stack  
-
-- **Languages:** Python, Java, C (based on project)
-- **Libraries/Tools:** Streamlit, Tkinter, Pillow, and standard libraries
+> 🆕 More projects will be added as I continue exploring!
 
 ---
 
-## 📦 How to Use  
+## 🛠️ Tech Stack
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/Siddharth-UPES/Smaller-Projects.git
+Depending on the project, the following technologies/tools were used:
+
+- **Languages:** HTML, CSS, JavaScript, Python, Java, C
+- **Web Tools:** DOM Manipulation, Event Handling
+- **Libraries:** Streamlit, Tkinter, Pillow (for GUI-based apps)
+- **Others:** Git, GitHub, VS Code
+
+---
+
+## 🚀 Getting Started
+
+To clone and explore the repository locally:
+
+ ```bash
+git clone https://github.com/Siddharth-UPES/Smaller-Projects.git
+cd Smaller-Projects
+
+---
+🤝 Contributing
+This is a personal learning space, but if you'd like to contribute ideas or improvements, feel free to fork the repo and raise a pull request.
+
+
+---
+
+Let me know if you want a version with screenshots or GitHub Pages links for your projects.
+
