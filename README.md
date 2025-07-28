@@ -42,6 +42,17 @@ Depending on the project, the following technologies/tools were used:
 
 ---
 
+---
+🤝 Contributing
+This is a personal learning space, but if you'd like to contribute ideas or improvements, feel free to fork the repo and raise a pull request.
+
+
+---
+
+Let me know if you want a version with screenshots or GitHub Pages links for your projects. 
+
+
+
 ## 🚀 Getting Started
 
 To clone and explore the repository locally:
@@ -50,12 +61,5 @@ To clone and explore the repository locally:
 git clone https://github.com/Siddharth-UPES/Smaller-Projects.git
 cd Smaller-Projects
 
----
-🤝 Contributing
-This is a personal learning space, but if you'd like to contribute ideas or improvements, feel free to fork the repo and raise a pull request.
 
-
----
-
-Let me know if you want a version with screenshots or GitHub Pages links for your projects.
 
