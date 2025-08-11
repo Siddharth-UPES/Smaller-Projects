@@ -1,4 +1,4 @@
-# 🎓 UPES Student Feedback Survey Form
+# 🎓 UPES Students Feedback Survey Form
 
 This is a basic HTML-only project that simulates a student feedback survey form for the University of Petroleum and Energy Studies (UPES). It is designed for front-end demonstration purposes using only **HTML** — no JavaScript or backend.
 
