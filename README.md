@@ -1,4 +1,4 @@
-# 📁 Mini Projects
+# 📁 Smallere Projects
 
 Welcome to my **Smaller Projects** repository!  
 This repository contains a curated collection of beginner-friendly and personal mini-projects developed during my academic learning and exploration of programming concepts.
