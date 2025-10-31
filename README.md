@@ -1,6 +1,6 @@
 # 📁 Smaller Projects
 
-Welcome to my **Smaller Projects** repository!  
+Welcome to my **Academic Projects** repository!  
 This repository contains a curated collection of beginner-friendly and personal mini-projects developed during my academic learning and exploration of programming concepts.
 
 ---
