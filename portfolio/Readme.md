@@ -10,7 +10,7 @@ A simple, clean, and responsive **Personal Portfolio Website** built using **HTM
 - 📑 Multiple HTML pages:
   - **Home Page**
   - **About Me Page**
-  - **Projects Page**
+  - **Project Page**
   - **Data Table Page**
   - **BioLink / Contact Page**
 - 📱 Responsive layout (basic responsiveness)
