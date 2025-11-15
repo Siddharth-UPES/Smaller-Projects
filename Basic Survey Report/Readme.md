@@ -5,7 +5,7 @@ This is a basic HTML-only project that simulates a student feedback survey form 
 ## 📁 Project Structure
   Basic Survey Report/
   ├── survey_Form.html # Main feedback form
-  ├── Thank.html # Thank you page (redirected after submission)
+  ├── Thank.html # Thank you page (redirected after the submission)
   ├── UPES-Logo-without-Tagline.jpg # University logo (shown on form)
 
 ## 📝 Features
